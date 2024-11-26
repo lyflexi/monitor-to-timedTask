@@ -45,11 +45,14 @@ public class DurationMonitorTask implements Runnable {
     public void run() {
         Long duration = 0L;
         for (JobInfo jobInfo : taskPool) {
+            //1
+            duration = jobInfo.calDuration();
+            //2
             if (jobInfo.isFinish()){
-                log.info("定时任务：{}:{}，执行完成耗时：{}ms.", jobInfo.getTaskId(), jobInfo.getFactoryCode(), jobInfo.getDuration());
+                log.info("定时任务：{}:{}，执行完成耗时：{}ms.", jobInfo.getTaskId(), jobInfo.getFactoryCode(), duration);
                 removeTask(jobInfo);
             }
-            duration = jobInfo.calDuration();
+            //3
             log.info("定时任务：{}:{}，正在执行,已耗时：{}ms.", jobInfo.getTaskId(), jobInfo.getFactoryCode(), duration);
             if (duration > ALERT_THRESHOLD) {
                 log.warn("warn...存在长耗时的定时任务：{}:{}，正在执行,已耗时：{}ms，请@开发排查！", jobInfo.getTaskId(), jobInfo.getFactoryCode(), duration);
