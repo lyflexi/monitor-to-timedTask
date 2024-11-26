@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lyflexi</groupId>
-    <artifactId>reflect-practice</artifactId>
+    <artifactId>alert-xxljob</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>reflect-practice</name>
-    <description>reflect-practice</description>
+    <name>alert-xxljob</name>
+    <description>alert-xxljob</description>
     <url/>
     <licenses>
         <license/>
